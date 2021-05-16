@@ -51,8 +51,8 @@ go assembly
 
 directive set /anomaly_detector/input_1:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
 directive set /anomaly_detector/input_1:rsc -PACKING_MODE sidebyside
-directive set /anomaly_detector/layer5_out:rsc -MAP_TO_MODULE ccs_ioport.ccs_out
-directive set /anomaly_detector/layer5_out:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/layer22_out:rsc -MAP_TO_MODULE ccs_ioport.ccs_out
+directive set /anomaly_detector/layer22_out:rsc -PACKING_MODE sidebyside
 directive set /anomaly_detector/const_size_in_1:rsc -MAP_TO_MODULE ccs_ioport.ccs_out
 directive set /anomaly_detector/const_size_out_1:rsc -MAP_TO_MODULE ccs_ioport.ccs_out
 directive set /anomaly_detector/core -MAX_LATENCY 8
