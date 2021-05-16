@@ -1,4 +1,4 @@
-set_working_dir /home/rui/Documents/NU/asic-implementation/test/hls4ml-catapult-test7/cryo-ai-models/models/ad03/anomaly_detector_prj
+set_working_dir .
 solution new -state initial
 solution options defaults
 solution options set Flows/ModelSim/VLOG_OPTS {-suppress 12110}
