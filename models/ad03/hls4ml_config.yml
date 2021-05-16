@@ -5,7 +5,7 @@ OutputDir: anomaly_detector_prj
 ProjectName: anomaly_detector
 XilinxPart: xc7z020clg400-1
 ClockPeriod: 10
-
+Backend: Catapult
 IOType: io_parallel
 HLSConfig:
   Model:
