@@ -6,6 +6,11 @@ run-console:
 	hls4ml convert -c hls4ml_config.yml
 .PHONY: run-console
 
+run-console-vivado:
+	hls4ml convert -c hls4ml_config_vivado.yml
+.PHONY: run-console-vivado
+
+
 run-python:
 	python py/hls4ml_convert.py
 .PHONY: run-python

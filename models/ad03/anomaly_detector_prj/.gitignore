@@ -1,6 +1,7 @@
 *.ccs
 Catapult*
 catapult.log
+catapult.pinfo
 catapult_cache_*
 design_checker_constraints.tcl
 design_checker_pre_build.tcl
