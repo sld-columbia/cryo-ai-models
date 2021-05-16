@@ -9,7 +9,7 @@ set CATAPULT_VERSION  [string map { / - } [string map { . - } [application get /
 solution options set Cache/UserCacheHome "catapult_cache_$CATAPULT_VERSION"
 solution options set Cache/DefaultCacheHomeEnabled false
 flow package require /SCVerify
-directive set -REGISTER_THRESHOLD 8192
+directive set -REGISTER_THRESHOLD 25600
 solution options set Flows/QuestaSIM/SCCOM_OPTS {-g -x c++ -Wall -Wno-unused-label -Wno-unknown-pragmas -DRTL_SIM -D__ASIC__}
 solution options set /Input/CompilerFlags {-DMNTR_CATAPULT_HLS -D__ASIC__}
 solution options set /Input/SearchPath {../anomaly_detector_prj/firmware/ ../anomaly_detector_prj/firmware/ap_types ../anomaly_detector_prj/firmware/weights ../anomaly_detector_prj/firmware/nnet_utils}
@@ -55,7 +55,54 @@ directive set /anomaly_detector/layer22_out:rsc -MAP_TO_MODULE ccs_ioport.ccs_ou
 directive set /anomaly_detector/layer22_out:rsc -PACKING_MODE sidebyside
 directive set /anomaly_detector/const_size_in_1:rsc -MAP_TO_MODULE ccs_ioport.ccs_out
 directive set /anomaly_detector/const_size_out_1:rsc -MAP_TO_MODULE ccs_ioport.ccs_out
-directive set /anomaly_detector/core -MAX_LATENCY 8
+
+#set directives for all of the inputs ports
+directive set /anomaly_detector/w2:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/w2:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b2:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b2:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/w6:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/w6:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b6:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b6:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/w10:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/w10:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b10:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b10:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/w14:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/w14:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b14:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b14:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/w18:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/w18:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b18:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b18:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/w22:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/w22:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b22:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b22:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/s4:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/s4:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b4:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b4:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/s8:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/s8:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b8:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b8:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/s12:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/s12:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b12:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b12:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/s16:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/s16:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b16:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b16:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/s20:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/s20:rsc -PACKING_MODE sidebyside
+directive set /anomaly_detector/b20:rsc -MAP_TO_MODULE ccs_ioport.ccs_in
+directive set /anomaly_detector/b20:rsc -PACKING_MODE sidebyside
+
+#directive set /anomaly_detector/core -MAX_LATENCY 8
 directive set /anomaly_detector/core -DESIGN_GOAL Area
 flow run /SCVerify/launch_make ./scverify/Verify_orig_cxx_osci.mk {} SIMTOOL=osci sim
 go architect
