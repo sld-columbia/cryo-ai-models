@@ -13,7 +13,7 @@ conda activate cryo-ai-env
 pip install git+https://github.com/ruishi31/hls4ml.git@catapult-backend
 pip install tensorflow
 pip install git+https://github.com/google/qkeras.git#egg=qkeras
-vim $HOME/miniconda3/envs/hls4ml-env/lib/python3.6/site-packages/hls4ml/converters/keras_to_hls.py +223
+vim $HOME/miniconda3/envs/cryo-ai-env/lib/python3.6/site-packages/hls4ml/converters/keras_to_hls.py +223
 # You should remove ".decode('utf-8')"
 ```
 
