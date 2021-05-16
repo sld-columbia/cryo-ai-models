@@ -1,5 +1,10 @@
 # Cryo AI Models
 
+## Clone Repository
+```
+git clone git@github.com:sld-columbia/cryo-ai-models.git
+```
+
 ## Python Environment Setup
 ```
 conda create --copy --name cryo-ai-env python=3.6
