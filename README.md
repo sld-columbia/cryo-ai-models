@@ -24,10 +24,23 @@ make download
 ```
 
 ## Getting Started
+An existing hls4ml project for the Catapult HLS backend is mantained in the directory `models/ad03/anomaly_detector_prj`. The following commands will overwrite the project so you can _git diff_ the manual changes that are still necessary in Catapult backend:
 ```
 conda activate cryo-ai-env
 cd models/ad03
 make run-console
 # or
 make run-python
+```
+## Compare Vivado HLS vs. Catapult HLS
+```
+conda activate cryo-ai-env
+cd models/ad03
+make run-console-vivado
+cd anomaly_detector_vivado_prj
+vim build_prj.tcl
+# set 0 lines 7 to 11
+# you want only "csim 1"
+vivado_hsl -f build_prj.tcl
+vimdiff tb_data/csim_results.log ../anomaly_detector_prj/tb_data/catapult_csim_results.log
 ```
