@@ -24,8 +24,8 @@ make download
 ```
 
 ## Getting Started
-An existing hls4ml project for the Catapult HLS backend is mantained in the directory `models/ad03/anomaly_detector_prj`. The following commands will overwrite the project so you can _git diff_ the manual changes that are still necessary in Catapult backend:
-```
+An existing hls4ml project for the Catapult HLS back-end is maintained in the directory `models/ad03/anomaly_detector_prj`. The following commands will overwrite the project so you can _git diff_ the manual changes that are still necessary in Catapult back-end.
+
 conda activate cryo-ai-env
 cd models/ad03
 make run-console
